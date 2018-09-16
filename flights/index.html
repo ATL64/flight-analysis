@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<!--
+	Introspect by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Flights Dashboard</title>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--<script type="text/javascript" src="d3/d3.v2.js"></script>-->
+		<script src="http://d3js.org/d3.v2.js"></script>
+		<!-- Note: I made good use of the sample code provided by the D3JS community and extended it to fit my needs to create this simple dashboard -->
+
+	</head>
+	<body>
+
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="index.html" class="logo">Flight Delays</a>
+				</div>
+			</header>
+			<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+
+
+        <!-- Banner -->
+        <section id="banner">
+            <div class="inner">
+                <h1>Interactive Dashboard using D3</h1>
+                <ul class="actions">
+                    <li><a href="http://bl.ocks.org/diethardsteiner/3287802" class="button alt">D3 Source</a></li>
+                    <li><a href="https://templated.co/introspect" class="button alt">Website Source</a></li>
+                </ul>
+            </div>
+
+        </section>
+
+
+        <div id="pieChart"></div>
+
+        <div id="barChart"></div>
+
+        <div id="lineChart">  </div>
+
+         <!-- Three -->
+        <section id="three">
+            <div class="inner">
+                <article>
+                    <div class="content">
+                        <span class="icon fa-laptop"></span>
+                        <header>
+                            <h3>Python Analysis</h3>
+                        </header>
+                        <p> Python Notebook with short analysis on the flight data</p>
+                        <ul class="actions">
+                            <li><a href="#" class="button alt">Learn More</a></li>
+                        </ul>
+                    </div>
+                </article>
+                <article>
+                    <div class="content">
+                        <span class="icon fa-diamond"></span>
+                        <header>
+                            <h3>Github repository</h3>
+                        </header>
+                        <p>Github Repo containing the files to generate this site and the data used for it</p>
+                        <ul class="actions">
+                            <li><a href="#" class="button alt">Learn More</a></li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/viz.js"></script>
+
+	</body>
+</html>
