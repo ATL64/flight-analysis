@@ -1,5 +1,0 @@
-{ category: "Carrier" , measure: 0.395317024899224}, 
-{ category: "Weather" , measure: 0.399493575097865}, 
-{ category: "NAS" , measure: 0.205102085364611}, 
-{ category: "Security" , measure: 8.73146382991108e-05}, 
-
