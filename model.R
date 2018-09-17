@@ -12,9 +12,7 @@ test_roc <- function(model, data) {
 flight_data<-read.csv('/Users/Downloads/2008.csv')
 
 
-#Create data for training. Given my current computer limitations, I will take the data size down (of course we could easily spin up a powerful VM on the cloud and run it on a bigger dataset).
-set.seed(2018) #For reproducibility
-flight_data<-flight_data[sample(nrow(flight_data), 4000), ]
+
 
 flight_data$Year<-NULL
 flight_data$Month<-as.factor(flight_data$Month)
@@ -46,16 +44,25 @@ flight_data$NASDelay<-NULL
 flight_data$SecurityDelay<-NULL
 flight_data$LateAircraftDelay<-NULL
 
-sum(flight_data$Cancelled) #Only 91 cancelled, unbalanced dataset.
+sum(flight_data$Cancelled) #Only 137434 cancelled, unbalanced dataset.
 
 
 
 flight_data$Cancelled<-as.factor(flight_data$Cancelled)
 levels(flight_data$Cancelled)<-c('not_cancelled','cancelled')
 
+#Create data for training. Given my current computer limitations, I will take the data size down (of course we could easily spin up a powerful VM on the cloud and run it on a bigger dataset).
+set.seed(2018) #For reproducibility
+test_train<-flight_data[sample(nrow(flight_data), 4000), ]
 
-train <- flight_data[1:1000,]
-test  <- flight_data[1001:2000,]
+train <- test_train[1:2000,]
+test  <- test_train[2001:4000,]
+
+
+nrow(unique(flight_data)) #6908908 out of 7 million
+
+
+
 
 row.has.na <- apply(test, 1, function(x){any(is.na(x))})
 sum(row.has.na)
@@ -83,12 +90,12 @@ rf_fit <- train(Cancelled ~ .,
                 trControl = ctrl)
 
 
-names(test)
+
 
 rf_fit %>%
   test_roc(data = test) %>%
   auc()
-
+#Does not work since it predicts majority class
 
 reference<-test$Cancelled
 predictions<-predict(rf_fit, test)  
@@ -97,7 +104,7 @@ confusionMatrix(predictions,reference)
 
 
 
-#Area under the curve: 0.8324
+# Not much use for this
 
 fm <- rf_fit$finalModel
 varImp(fm)
